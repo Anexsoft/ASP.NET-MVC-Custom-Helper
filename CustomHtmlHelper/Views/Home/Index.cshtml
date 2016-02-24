@@ -1,0 +1,20 @@
+﻿@model CustomHtmlHelper.Models.Usuario
+@{
+    ViewBag.Title = "Home Page";
+    Dictionary<string, string> paises = CustomHtmlHelper.Models.Pais.GetAll().ToDictionary(x => x.id.ToString(), x => x.Nombre);
+}
+
+<div class="form-group">
+    <label>Nombre</label>
+    @Html.BootstrapTextBoxFor(x => x.Nombre)
+</div>
+
+<div class="form-group">
+    <label>Apellido</label>
+    @Html.BootstrapTextBox("Apellido", "Rodríguez Patiño")
+</div>
+
+<div class="form-group">
+    <label>País</label>
+    @Html.Chosen("pais", paises, "Seleccione un país")
+</div>
